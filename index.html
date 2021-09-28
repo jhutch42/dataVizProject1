@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Project 1 - Cholera in London</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.plot.ly/plotly-2.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>Data Files</h3>
+        <div class="sidebar-subsection">
+            <input type="button" value="Cholera Deaths" class="button sidebar-button" id="data-0" />
+            <div class="sub-button-wrapper" id="sub-0">
+                <input type="button" value="Data Table" class="button sidebar-button handle-data" id="chart0" />
+                <input type="button" value="Line Chart" class="button sidebar-button handle-data" id="chart1" />
+            </div>
+        </div>
+        <div class="sidebar-subsection">
+            <input type="button" value="Naples Age/Sex Data" class="button sidebar-button" id="data-1" />
+            <div class="sub-button-wrapper" id="sub-1">
+                <input type="button" value="Data Table" class="button sidebar-button handle-data" id="chart5" />
+                <input type="button" value="Bar Chart" class="button sidebar-button handle-data" id="chart2" />
+                <input type="button" value="Pie Chart" class="button sidebar-button handle-data" id="chart4" />
+            </div>
+        </div>
+        <div class="sidebar-subsection">
+            <input type="button" value="1851 UK Census Data" class="button sidebar-button" id="data-4" />
+            <div class="sub-button-wrapper" id="sub-3">
+                <input type="button" value="Data Table" class="button sidebar-button handle-data" id="chart6" />
+                <input type="button" value="Pie Chart - Age Data" class="button sidebar-button handle-data" id="chart7" />
+                <input type="button" value="Bar Chart - Age Data" class="button sidebar-button handle-data" id="chart8" />
+                <input type="button" value="Pie Chart - Gender Data" class="button sidebar-button handle-data" id="chart9" />
+            </div>
+        </div>
+        <div class="sidebar-subsection">
+            <input type="button" value="Pump and Death Locations" class="button sidebar-button" id="data-2" />
+            <div class="sub-button-wrapper" id="sub-2">
+                <input type="button" value="Map Chart" class="button sidebar-button handle-data" id="chart3" />
+            </div>
+        </div>
+        <div class="sidebar-subsection bottom">
+            <input type="button" value="View Project Details" class="button sidebar-button" id="project-details" />
+        </div>
+    </div>
+
+    <div id="project-details-popup">
+        <div id="header-bar">
+            <h3>Project Details</h3>
+            <div id="close-button">
+                <p>X</p>
+            </div>
+        </div>
+        <div id="project-details-content">
+            <table>
+                <tr>
+                    <td class="left">Details: </td>
+                    <td class="right">This project visualizes data from the 1854 Cholera outbreak in London, UK</td>
+                </tr>
+                <tr>
+                    <td class="left">Author: </td>
+                    <td class="right">James Hutchison</td>
+                </tr>
+                <tr>
+                    <td class="left">Organization: </td>
+                    <td class="right">University of Hawaii at Manoa</td>
+                </tr>
+                <tr>
+                    <td class="left">Created: </td>
+                    <td class="right">Sept. 27, 2021</td>
+                </tr>
+                <tr>
+                    <td class="left">Data: </td>
+                    <td class="right">Created and Compiled by Robin Wilson, Jan. 2021. <a
+                            href="http://www.rtwilson.com/">http://www.rtwilson.com/</a></td>
+                </tr>
+                <tr>
+                    <td class="left">More Info: </td>
+                    <td class="right"><a href="http://youtu.be/KvHL0dHj3RM">Ted Talk </a>about the 1854 Cholera
+                        Outbreak.</td>
+                </tr>
+                <tr>
+                    <td class="left">Built With: </td>
+                    <td class="right">Created using Plotly for javascript.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="outputWrapper">
+        <div id="output"></div>
+        <div id="overlay">
+            <h2 id="overlayText">Visualizing the 1854 Cholera Outbreak of London, UK</h2>
+            <h3 id="overlaySubText">Select a data file to begin</h3>
+            <img id="map-img" src="images/snowMapRobinWilson.jpg">
+            <img id="notice-img" src="images/choleraNotice.jpg">
+            
+        </div>
+        <div id="death-table" class="annotations">
+            <h3>Table of Cholera Attacks and Deaths by Date</h3>
+            <hr>
+            <p>One attack represents one individual contracting cholera on the specific date. One death represents one
+                individual dying from cholera on the specific date.</p>
+        </div>
+        <div id="death-line" class="annotations">
+            <h3>Chart of Cholera Attacks and Deaths by Date</h3>
+            <hr>
+            <p>This line chart visualizes <span class="dark-blue bold">attacks</span> and <span
+                    class="dark-purple bold">deaths</span> over time, as well as <span class="pink bold">cumulative
+                    attacks</span> and <span class="yellow bold">cumulative deaths</span>. One
+                can identify
+                the rapid spread and slow decline of the outbreak as well as the staggeringly high fatality rate.
+        </div>
+        <div id="naples-table" class="annotations">
+            <h3>Table of Age and Gender of Cholera Deaths per 10,000 People in 1800's Naples</h3>
+            <hr>
+            <p>This table shows data collected from an outbreak of cholera in Naples during years similar to the UK outbreak. Data is divided into age ranges and genders. Male and Female values represent deaths per 10,000 individuals.</p>
+        </div>
+        <div id="naples-bar">
+            <h3>Bar Chart of Age and Gender of Cholera Deaths per 10,000 People in 1800's Naples</h3>
+            <hr>
+            <p>This bar chart shows data collected from an outbreak of cholera in Naples during years similar to the UK outbreak. Data is divided into age ranges and genders. 
+                <span class="dark-blue bold">Male</span> and <span class="pink bold">Female</span> values represent deaths per 10,000 individuals.
+            </p>
+        </div>
+        <div id="naples-pie">
+            <h3>Pie of Gender Demographics for Cholera Deaths per 10,000 People in 1800's Naples</h3>
+            <hr>
+            <p>This pie chart shows the distribution of <span class="dark-blue bold">Male</span> to <span class="pink bold">Female</span> deaths caused by cholera in Naples.
+            </p>
+        </div>
+        <div id="pump-map">
+            <h3>Map of Pumps and Death Data</h3>
+            <hr>
+            <p>This map shows the <span class="dark-purple bold">water pump</span> locations. These purple points each represent a single pump. The dark blue 
+            circles represent <span class="dark-blue bold">deaths due to cholera</span>. Larger blue circles represent more deaths, smaller circles represent less deaths.</p>
+        </div>
+        <div id="census-table" class="annotations">
+            <h3>Table of Age and Gender Demographics in 1851 UK</h3>
+            <hr>
+            <p>This table shows data collected from an outbreak of cholera in Naples during years similar to the UK outbreak. Data is divided into age ranges and genders.</p>
+        </div>
+        <div id="census-age-pie" class="annotations">
+            <h3>Pie Chart of Age Distribution in 1851 UK</h3>
+            <hr>
+            <p>This pie chart shows the distribution of ages by decade from the 1851 UK census.</p>
+        </div>
+        <div id="census-gender-pie" class="annotations">
+            <h3>Pie Chart showing distribution of Male vs Female in 1851 UK census</h3>
+            <hr>
+            <p>This table shows data collected from an outbreak of cholera in Naples during years similar to the UK outbreak. Data is divided into age ranges and genders.</p>
+        </div>
+        <div id="census-bar" class="annotations">
+            <h3>Bar Chart of Age Distribution in 1851 UK</h3>
+            <hr>
+            <p>This bar chart shows the distribution of ages by decade, with two traces, <span class="dark-blue bold">Male</span> and <span class="pink bold">Female</span>, from the 1851 UK census.</p>
+        </div>
+
+    </div>
+    <script src="data/data.js"></script>
+    <script src="js/classes/dataManager.js"></script>
+    <script src="js/classes/contentManager.js"></script>
+    <script src="js/classes/chartManager.js"></script>
+    <script src="js/scripts/main.js"></script>
+</body>
+
+</html>

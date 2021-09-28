@@ -1,0 +1,363 @@
+:root {
+  --button-color: #363738;
+  --button-sub-color: darkgray;
+  --active-button-color: #003f5c;
+  --active-chart-button-color: #665191;
+  --button-hover-color: gray;
+  --white: white;
+  --text-color: black;
+  --dark-purple: #665191;
+  --light-purple: #a05195;
+  --pink: #d45087;
+  --sharp-pink: #f95d6a;
+  --dark-blue: #003f5c;
+  --light-blue: #2f4b7c;
+  --orange: #ff7c43;
+  --yellow: #ffa600;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("../fonts/Sora-VariableFont_wght.ttf");
+}
+
+body {
+  background-color: white;
+  color: var(--text-color);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Sora", Fallback, sans-serif;
+}
+
+.sidebar {
+  position: relative;
+  float: left;
+  top: 25vh;
+  height: 60vh;
+  width: 20vw;
+  padding-left: 2vw;
+}
+
+.sidebar-subsection {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+
+.sidebar > h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.sub-button-wrapper {
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+}
+
+.button {
+  background-color: var(--button-color);
+  color: var(--white);
+  padding: 0.4vw;
+  cursor: pointer;
+  border-style: solid;
+  border: 1px solid transparent;
+  height: 4vh;
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.active {
+  background-color: var(--active-button-color);
+}
+.active:hover {
+  background-color: var(--active-button-color);
+}
+
+.sidebar-button {
+  width: 80%;
+  left: 10%;
+  position: relative;
+  margin-top: 2%;
+}
+
+#outputWrapper {
+  position: relative;
+  width: 70vw;
+  height: 80vh;
+  top: 5vh;
+  outline: 1px solid white;
+  left: 3vw;
+  float: left;
+}
+#output {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.handle-data {
+  display: block;
+  background: var(--button-sub-color);
+}
+
+#overlay {
+  position: relative;
+  width: 100%;
+  z-index: 10000;
+  display: block;
+  height: 110%;
+  background-color: rgba(0,0,0,0.9);
+  overflow: hidden;
+}
+
+#overlay > #notice-img {
+  width: auto;
+  height: 80%;
+  top: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+#overlay > #map-img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    opacity: 0.3;
+}
+#overlay > h2 {
+  width: 45%;
+  text-align: center;
+  position: relative;
+  top: 34%;
+  font-size: 2em;
+  left: 3%;
+  color: white;
+}
+#overlay > h3 {
+  width: 45%;
+  text-align: center;
+  position: relative;
+  top: 34%;
+  font-size:1.4em;
+  left: 3%;
+  color: white;
+}
+
+#vizHeader {
+  display: none;
+}
+
+.active-chart-button {
+  background-color: var(--active-chart-button-color);
+}
+.active-chart-button:hover {
+  background-color: var(--active-chart-button-color);
+}
+
+
+#project-details-popup {
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    background-color: white;
+    z-index: 1000000;
+    padding-top: 0;
+    display: none;
+}
+
+#header-bar {
+    background-color: var(--active-button-color);
+    width: 100%;
+    position: relative;
+    height: 7vh;
+    text-align: center;
+}
+
+#header-bar > h3 {
+    padding-top: 2vh;
+    color: white;
+}
+
+#project-details-content {
+    height: calc(53vh - 4%);
+    background-color: rgb(212, 212, 212);
+    width: 96%;
+    position: relative;
+    padding: 2%;
+}
+
+#close-button {
+    color: white;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 2vw;
+    height: 2vw;
+    top: 0;
+    right: .3vw;
+    cursor: pointer;
+    top: 1vh;
+}
+#close-button > p {
+    font-size: 1.2em;
+    position: relative;
+    top: -2vh;
+}
+
+td {
+    vertical-align: top;
+    padding: .5vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+#death-table {
+    position: absolute;
+    height: 50%;
+    top: 20%;
+    width: 40%;
+    right: 14%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#death-line {
+    position: absolute;
+    height: 50%;
+    top: 17%;
+    width: 25%;
+    right: 0;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+
+#naples-table {
+    position: absolute;
+    height: 50%;
+    top: 15%;
+    width: 40%;
+    right: 14%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#naples-bar {
+    position: absolute;
+    height: 50%;
+    top: 71%;
+    width: 80%;
+    left: 6%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#naples-pie {
+    position: absolute;
+    height: 50%;
+    top: 20%;
+    width: 30%;
+    right: 20%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#pump-map {
+    position: absolute;
+    height: 50%;
+    top: 71%;
+    width: 80%;
+    left: 8%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#census-table {
+    position: absolute;
+    height: 50%;
+    top: 18%;
+    width: 40%;
+    right: 14%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+
+#census-age-pie {
+    position: absolute;
+    height: 50%;
+    top: 35%;
+    width: 30%;
+    right: 22%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+
+#census-gender-pie {
+    position: absolute;
+    height: 50%;
+    top: 20%;
+    width: 30%;
+    right: 20%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+#census-bar {
+    position: absolute;
+    height: 50%;
+    top: 67%;
+    width: 80%;
+    left: 6%;
+    bottom: 0;
+    padding-top: 10%;
+    display: none;
+}
+.annotations > h3 {
+    text-align: left;
+}
+.bold {
+    font-weight: 600;
+}
+.dark-blue {
+    color: var(--dark-blue);
+}
+
+.light-blue {
+    color: var(--light-blue)
+}
+
+.pink {
+    color: var(--pink);
+}
+
+.sharp-pink {
+    color: var(--sharp-pink);
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+.orange {
+    color: var(--orange);
+}
+.light-purple {
+    color: var(--light-purple);
+}
+.dark-purple {
+    color: var(--dark-purple);
+}
